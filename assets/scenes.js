@@ -10,7 +10,7 @@ export const scenes = {
       locale: 'ru',
       title: 'Мастерская художника',
       letter: 'К',
-      image: 'studio-ru.jpg',
+      image: 'studio-ru.webp',
       alt: 'Мастерская с мольбертами, спящим котом, кистями и красками на столе.',
       objects: [
         object('cat', 'кот', 'кошка', 'коты', 'кошки', 'котик'),
@@ -31,7 +31,7 @@ export const scenes = {
       locale: 'ru',
       title: 'Зимний вечер',
       letter: 'С',
-      image: 'winter-ru.jpg',
+      image: 'winter-ru.webp',
       alt: 'Заснеженная улица: мальчик с собакой, снеговик, санки у скамейки и снегирь на ветке.',
       objects: [
         object('snow', 'снег'),
@@ -58,7 +58,7 @@ export const scenes = {
       locale: 'en',
       title: 'The artist’s studio',
       letter: 'C',
-      image: 'studio-en.png',
+      image: 'studio-en.webp',
       alt: 'A cozy artist’s studio with a cat, canvases, a camera, a candle and a cup among the art supplies.',
       objects: [
         object('cat', 'cat', 'cats'),
@@ -81,7 +81,7 @@ export const scenes = {
       locale: 'en',
       title: 'A winter evening',
       letter: 'S',
-      image: 'winter-en.png',
+      image: 'winter-en.webp',
       alt: 'A snowy town with a snowman, a sled, a sweater, a scarf, skis and snowballs under a star in the window.',
       objects: [
         object('snow', 'snow'),

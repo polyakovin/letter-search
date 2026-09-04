@@ -912,7 +912,7 @@ export const customScenes = {
     locale: 'ru',
     title: 'Гугарк',
     letter: 'К',
-    image: '6b06919d-8891-45b4-80e6-f37995adb02c.jpg',
+    image: '6b06919d-8891-45b4-80e6-f37995adb02c.webp',
     alt: 'Гугарк: дом и двор с питомцами в подводном мире.',
     annotations: [
       custom('whale', 'кит'),
@@ -937,7 +937,7 @@ export const customScenes = {
     locale: 'en',
     title: 'Gugark',
     letter: 'C',
-    image: '6b06919d-8891-45b4-80e6-f37995adb02c.jpg',
+    image: '6b06919d-8891-45b4-80e6-f37995adb02c.webp',
     alt: 'Gugark: a house, garden and pets in an underwater world.',
     annotations: [
       custom('coral', 'coral'),
