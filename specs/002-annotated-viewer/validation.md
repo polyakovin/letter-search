@@ -11,7 +11,11 @@
 - A deliberately missing local winter image displayed the localized error and Retry while Close stayed available. After restoring the preview asset, Retry loaded the 1451-pixel image and enabled the 100% overlay. The source raster was untouched.
 
 ## Convergence
-FR1–FR6 are implemented and checked above. FR7 has unchanged image files, local font/license, a restricted static deployment, and publication as the final gate. No new product scope or backend work is required.
+FR1–FR7 are implemented and verified. Source images remain unchanged; the font/license and annotation modules are restricted static assets. No new product scope or backend work is required.
 
 ## Publication
-Pending the scoped commit's existing GitHub Pages workflow and live RU/EN smoke check.
+Code commit `0fcf557060bdc69a423df63b62c562251f287b54` published successfully through [Pages run 33865537736](https://github.com/polyakovin/letter-search/actions/runs/33865537736).
+
+Actual public RU and EN pages were opened in the browser after deployment. The Russian studio loaded at 1280 pixels with 11 marked objects and the local handwritten font; the English studio loaded at 1452 pixels with 13 English labels, and English Gugark at 1200 pixels with 11 C labels. The bottom slider, original/annotated endpoints, close and page navigation worked on the Pages prefix.
+
+Physical touch hardware and browsers without the Fullscreen API were not available; mobile layout was checked with viewport emulation. Unsupported fullscreen is optional and leaves the same full-viewport dialog available.

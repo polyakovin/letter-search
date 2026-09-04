@@ -5,4 +5,4 @@
 - [x] T004 Implement full-viewport viewer, bottom reveal slider, zoom/pan, fallback and safe close in site/viewer.js and style.css.
 - [x] T005 Connect hero/game/custom images and bilingual controls in template.js, content.js and app.js.
 - [x] T006 Update build allowlist, documentation and checks; run bun run verify and browser QA.
-- [ ] T007 Check convergence, publish scoped update to existing main and verify actual Pages deployment.
+- [x] T007 Check convergence, publish scoped update to existing main and verify actual Pages deployment.
