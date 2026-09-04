@@ -17,8 +17,8 @@
 ## Phase 6: Delivery
 - [x] T011 Verify built links, asset allowlist and locales in scripts/check.js; browser QA desktop/mobile and both demos.
 - [x] T012 Document operation and validation in README.md and AGENTS.md; run bun run verify here and source-project gate.
-- [ ] T013 Add .github/workflows/pages.yml; publish target main and enable Pages; verify both public URLs.
-- [ ] T014 Perform spec/plan/task convergence and record actual verification in specs/001-bilingual-website/validation.md.
+- [x] T013 Add .github/workflows/pages.yml; publish target main and enable Pages; verify both public URLs.
+- [x] T014 Perform spec/plan/task convergence and record actual verification in specs/001-bilingual-website/validation.md.
 
 ## Dependencies and strategy
 T003–T004 precede US1. T005 precedes T006. US2 builds on US1 with images prepared independently; T010 copy can be prepared alongside T008. T011–T014 follow all stories. Deliver full requested scope, starting with playable RU scene. No parallel code writers needed.
