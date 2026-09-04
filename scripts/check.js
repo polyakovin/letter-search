@@ -47,6 +47,22 @@ for (const locale of ['ru', 'en']) {
   }
   assert(html.includes('6b06919d-8891-45b4-80e6-f37995adb02c.jpg'));
   assert.equal((html.match(/class="case"/g) ?? []).length, 4);
+  for (const key of ['studio', 'game', 'custom'])
+    assert(html.includes(`data-viewer="${key}"`));
+  for (const id of [
+    'annotation-range',
+    'viewer-stage',
+    'show-original',
+    'show-annotations',
+    'viewer-zoom',
+    'close-dialog',
+  ])
+    assert(ids.includes(id));
+  assert(
+    html.includes(
+      'type="range" id="annotation-range" min="0" max="100" value="0"',
+    ),
+  );
 }
 const allowed = new Set([
   'index.html',
@@ -59,6 +75,11 @@ const allowed = new Set([
   'assets/content.js',
   'assets/scenes.js',
   'assets/demo.js',
+  'assets/viewer.js',
+  'assets/viewer-model.js',
+  'assets/annotations.js',
+  'assets/Caveat.ttf',
+  'assets/Caveat-OFL.txt',
   ...Object.values(scenes)
     .flat()
     .map((s) => `assets/${s.image}`),
@@ -72,7 +93,15 @@ async function walk(path, prefix = '') {
   }
 }
 await walk(root);
-for (const file of ['app.js', 'content.js', 'scenes.js', 'demo.js']) {
+for (const file of [
+  'app.js',
+  'content.js',
+  'scenes.js',
+  'demo.js',
+  'viewer.js',
+  'viewer-model.js',
+  'annotations.js',
+]) {
   const source = await readFile(join(root, 'assets', file), 'utf8');
   new Bun.Transpiler({ loader: 'js' }).transformSync(source);
   for (const [, relative] of source.matchAll(/from ['"](\.\/[^'"]+)['"]/g)) {

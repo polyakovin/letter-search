@@ -1,3 +1,4 @@
+import { createViewer } from './viewer.js';
 import { copy } from './content.js';
 import { scenes } from './scenes.js';
 import {
@@ -20,7 +21,11 @@ let imageReady = false;
 let interval;
 const scene = () => catalog[sceneIndex];
 const image = $('game-image');
-const dialog = $('image-dialog');
+const viewer = createViewer({
+  locale,
+  copy: c,
+  scene: (key) => (key === 'studio' ? catalog[0] : scene()),
+});
 
 function chip(text, found = false) {
   const li = document.createElement('li');
@@ -86,7 +91,7 @@ function endRound() {
   render();
   $('round-notice').textContent =
     `${c.resultTitle} ${c.score}: ${round.accepted.length}.`;
-  if (!dialog.open) $('replay').focus({ preventScroll: true });
+  if (!viewer.isOpen()) $('replay').focus({ preventScroll: true });
 }
 function setImageStatus() {
   imageReady = image.complete && image.naturalWidth > 0;
@@ -114,6 +119,11 @@ function selectScene(index) {
   $('reload').hidden = true;
   image.src = asset(scene().image);
   image.alt = scene().alt;
+  $('game-image-link').href = asset(scene().image);
+  $('game-image-link').setAttribute(
+    'aria-label',
+    `${c.enlarge}: ${scene().title}`,
+  );
   $('scene-title').textContent = scene().title;
   $('target-letter').textContent = scene().letter;
   document.querySelectorAll('[data-scene]').forEach((button) => {
@@ -162,25 +172,9 @@ document.querySelectorAll('[data-scene]').forEach((button) => {
     selectScene(Number(button.dataset.scene)),
   );
 });
-$('enlarge').addEventListener('click', () => {
-  $('zoom-image').src = asset(scene().image);
-  $('zoom-image').alt = scene().alt;
-  $('dialog-title').textContent = scene().title;
-  $('original-image').href = asset(scene().image);
-  dialog.showModal();
-});
-$('close-dialog').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', (event) => {
-  if (event.target !== dialog) return;
-  const rect = dialog.getBoundingClientRect();
-  if (
-    event.clientX < rect.left ||
-    event.clientX > rect.right ||
-    event.clientY < rect.top ||
-    event.clientY > rect.bottom
-  )
-    dialog.close();
-});
+$('enlarge').addEventListener('click', () =>
+  viewer.open(scene(), $('enlarge')),
+);
 document.addEventListener('visibilitychange', updateTimer);
 window.addEventListener('pageshow', updateTimer);
 window.addEventListener('pagehide', () => clearInterval(interval));

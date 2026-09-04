@@ -14,10 +14,20 @@ for (const locale of ['ru', 'en']) {
     render(locale),
   );
 }
-for (const file of ['style.css', 'app.js', 'content.js', 'scenes.js']) {
+for (const file of [
+  'style.css',
+  'app.js',
+  'content.js',
+  'scenes.js',
+  'viewer.js',
+]) {
   await cp(`${root}site/${file}`, `${dist}/assets/${file}`);
 }
 await cp(`${root}src/services/demo.js`, `${dist}/assets/demo.js`);
+await cp(`${root}content/annotations.js`, `${dist}/assets/annotations.js`);
+await cp(`${root}src/services/viewer.js`, `${dist}/assets/viewer-model.js`);
+await cp(`${root}content/fonts/Caveat.ttf`, `${dist}/assets/Caveat.ttf`);
+await cp(`${root}content/fonts/OFL.txt`, `${dist}/assets/Caveat-OFL.txt`);
 const images = [
   ...new Set(
     Object.values(scenes)
