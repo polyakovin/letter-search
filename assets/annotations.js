@@ -954,3 +954,26 @@ export const customScenes = {
     ],
   },
 };
+
+export const referenceScenes = {
+  ru: {
+    id: 'reference',
+    locale: 'ru',
+    title: 'Исходная фотография',
+    image: 'gugark-original.webp',
+    alt: 'Исходная фотография дома и двора в Гугарке: ель, колодец, палатка и сад.',
+    annotations: [],
+    viewerHint:
+      'Эта фотография стала основой персональной иллюстрации. У референса нет слоя с игровыми подсказками.',
+  },
+  en: {
+    id: 'reference',
+    locale: 'en',
+    title: 'Original photograph',
+    image: 'gugark-original.webp',
+    alt: 'Original photograph of the Gugark house and garden with a spruce tree, well and tent.',
+    annotations: [],
+    viewerHint:
+      'This photograph inspired the personalized illustration. Reference photos do not have an answer overlay.',
+  },
+};

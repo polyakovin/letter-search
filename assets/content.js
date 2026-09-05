@@ -152,7 +152,8 @@ export const copy = {
     contact: 'Обсудить свою картинку',
     contactNote:
       'Расскажите, для кого игра, какой повод и что важно спрятать в сюжете. Детали и стоимость обсудим лично.',
-    customCaption: '«Гугарк» · пример персональной картинки',
+    customOriginalCaption: 'Исходная фотография',
+    customCaption: 'Персональная иллюстрация «Гугарк»',
     customBadge: 'Особенные детали.\nТолько ваши.',
     telegramEyebrow: 'ПРОДОЛЖЕНИЕ — В TELEGRAM',
     telegramTitle: 'Есть ещё что поискать.',
@@ -328,7 +329,8 @@ export const copy = {
     contact: 'Let’s create your picture',
     contactNote:
       'Tell us who it’s for, what you’re celebrating and which details matter. We’ll discuss the scope and price with you personally.',
-    customCaption: '“Gugark” · a personalized picture example',
+    customOriginalCaption: 'Original photograph',
+    customCaption: 'Personalized “Gugark” illustration',
     customBadge: 'Little details.\nUniquely yours.',
     telegramEyebrow: 'MORE TO DISCOVER ON TELEGRAM',
     telegramTitle: 'Keep your curiosity going.',

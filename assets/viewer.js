@@ -1,4 +1,8 @@
-import { annotations, customScenes } from './annotations.js';
+import {
+  annotations,
+  customScenes,
+  referenceScenes,
+} from './annotations.js';
 import {
   clipForReveal,
   contourPath,
@@ -31,6 +35,11 @@ export function createViewer({ locale, copy, scene }) {
   let loadId = 0;
   let imageLoaded = false;
   const asset = (file) => new URL(file, import.meta.url).href;
+  const resolveDescriptor = (descriptor) => {
+    if (descriptor.id === 'custom') return customScenes[locale];
+    if (descriptor.id === 'reference') return referenceScenes[locale];
+    return viewForScene(descriptor, annotations);
+  };
 
   function setReveal(value) {
     const percent = revealPercent(value);
@@ -147,14 +156,14 @@ export function createViewer({ locale, copy, scene }) {
     }
   }
   function open(descriptor, trigger) {
-    current =
-      descriptor.id === 'custom'
-        ? customScenes[locale]
-        : viewForScene(descriptor, annotations);
+    current = resolveDescriptor(descriptor);
+    const hasAnnotations = current.annotations.length > 0;
     returnFocus = trigger;
     $('dialog-title').textContent = current.title;
-    $('viewer-notice').textContent = copy.viewerHint;
-    $('viewer-letter').textContent = current.letter;
+    $('viewer-notice').textContent = current.viewerHint ?? copy.viewerHint;
+    $('viewer-letter-tag').hidden = !hasAnnotations;
+    $('viewer-reveal-panel').hidden = !hasAnnotations;
+    $('viewer-letter').textContent = current.letter ?? '';
     $('original-image').href = asset(current.image);
     drawAnnotations();
     setReveal(0);
@@ -216,7 +225,9 @@ export function createViewer({ locale, copy, scene }) {
       const descriptor =
         link.dataset.viewer === 'custom'
           ? customScenes[locale]
-          : scene(link.dataset.viewer);
+          : link.dataset.viewer === 'reference'
+            ? referenceScenes[locale]
+            : scene(link.dataset.viewer);
       open(descriptor, link);
     });
   });
