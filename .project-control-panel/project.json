@@ -1,0 +1,31 @@
+{
+  "dashboard": {
+    "description": "Репозиторий статической публикации сайта Letter Search.",
+    "goal": "Доставлять сайт из исходного репозитория letter-search-website-source.",
+    "platform": "Статический веб; GitHub Pages",
+    "updated_at": "2026-10-04",
+    "stage": "Репозиторий сборки.",
+    "highlights": [
+      "Русская и английская версии сайта игры."
+    ],
+    "constraints": [
+      "Контент и интерфейс меняются в исходном репозитории, не в готовой сборке."
+    ],
+    "links": [
+      {
+        "label": "Сайт",
+        "url": "https://polyakovin.github.io/letter-search/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Документ проекта",
+        "path": "index.html"
+      },
+      {
+        "label": "Документ проекта",
+        "path": "../letter-search-website-source/README.md"
+      }
+    ]
+  }
+}
